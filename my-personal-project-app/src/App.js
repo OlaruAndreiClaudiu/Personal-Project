@@ -166,7 +166,7 @@ function App() {
 				onProductRemove={onProductRemove}
 			/>
 			<div className="navbar">
-				<h3 className="logo">Logo</h3>
+				<h3 className="logo">Shopping</h3>
 				<button
 					className="btn shopping-cart-btn"
 					onClick={() =>

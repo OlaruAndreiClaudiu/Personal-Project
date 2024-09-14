@@ -107,8 +107,14 @@ function ShoppingCart({
 									size={20}
 								/>
 							</button>
+
 						</div>
 					))}
+						Total :{products.map((product)=>(
+						<div className="total">
+							{product.price*product.count}$
+						</div>
+							))}
 					{products.length > 0 && (
 						<button className="btn checkout-btn">
 							Proceed to checkout
