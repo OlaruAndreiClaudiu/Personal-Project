@@ -26,27 +26,37 @@ function Details({
 						/>
 					</button>
 				</div>
+				
                 <div className="cart-products">
-					{products.length === 0 && (
-						<span className="empty-text">
-							No description
-						</span>
-					)}
-								<div className="products">
+					<div className="products">
 					{products.map((product) => (
 						<div
 							className="product"
 							key={product.id}>
+							<img
+								className="product-image"
+								src={
+									product.image
+								}
+								alt={
+									product.image
+								}
+							/>
 							<h4 className="product-name">
 								{product.name}
 							</h4>
 							<p>
 								{
-									product.description
+									product.details
 								}
 							</p>
 						</div>
 					))}
+						{products.length === 0 && (
+						<span className="empty-text">
+							No description
+						</span>
+					)}
 				</div>
 				</div>
 			</div>
