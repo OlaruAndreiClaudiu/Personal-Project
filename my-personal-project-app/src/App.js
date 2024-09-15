@@ -6,7 +6,7 @@ import "./style/main.css";
 import { GiShoppingBag } from "react-icons/gi";
 import RatingStars from "./components/RatingStars";
 import ShoppingCart from "./components/ShoppingCart";
-import Details from "./components/Details"
+import Details from "./components/Details";
 
 const products = [
 	{
@@ -347,7 +347,7 @@ function App() {
 								<button className="btn"
 									onClick={() =>
 										setDetailsVisible(
-											product.details
+											true
 										)
 									}>
 									Details

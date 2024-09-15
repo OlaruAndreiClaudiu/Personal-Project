@@ -32,17 +32,22 @@ function Details({
 							No description
 						</span>
 					)}
+								<div className="products">
 					{products.map((product) => (
 						<div
-							className="cart-product"
+							className="product"
 							key={product.id}>
-							<div className="product-info">
-								<h3>
-									{product.details}
-								</h3>
-							</div>
+							<h4 className="product-name">
+								{product.name}
+							</h4>
+							<p>
+								{
+									product.description
+								}
+							</p>
 						</div>
 					))}
+				</div>
 				</div>
 			</div>
 		</div>

@@ -10,7 +10,7 @@
 	z-index: 10;
 }
 
-.details {
+.checkout {
 	width: 60%;
 	height: 90%;
 	margin: 2rem auto;
@@ -21,7 +21,7 @@
 	position: relative;
 }
 
-.details .header {
+.checkout .header {
 	display: flex;
 	background-color: #ccc;
 	padding: 10px 20px;
@@ -38,16 +38,28 @@
 	margin: auto;
 }
 
-.cart-product {
-	padding: 2rem;
-	margin: auto;
-}
-
-.product-info {
-	flex-basis: 50%;
-}
-
-.product-info h3 {
-	font-weight: 400;
+.buy {
+	background-color: green;
+	padding: 10px 20px;
 	font-size: 1rem;
+	color: #fff;
+	align-self: center;
+	margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
+.cancel {
+	background-color: red;
+	padding: 10px 20px;
+	font-size: 1rem;
+	color: #fff;
+	align-self: center;
+	margin: 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+

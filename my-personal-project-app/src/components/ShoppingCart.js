@@ -1,7 +1,11 @@
-import React from "react";
+import React, {
+	useState,
+	useEffect,
+} from "react";
 import "../style/shoppingCart.css";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import Checkout from "../components/Checkout";
 
 function ShoppingCart({
 	visibilty,
@@ -10,6 +14,22 @@ function ShoppingCart({
 	onClose,
 	onQuantityChange,
 }) {
+	const [checkoutVisibilty, setCheckoutVisible] =
+	useState(false);
+	const [productsInCheckout, setCheckout] =
+	useState(
+		JSON.parse(
+			localStorage.getItem(
+				"checkout"
+			)
+		) || []
+	);
+	useEffect(() => {
+	localStorage.setItem(
+		"checkout",
+		JSON.stringify(productsInCheckout)
+	);
+	}, [productsInCheckout]);
 	return (
 		<div
 			className="modal"
@@ -18,6 +38,12 @@ function ShoppingCart({
 					? "block"
 					: "none",
 			}}>
+	<Checkout
+	visibilty={checkoutVisibilty}
+	products={productsInCheckout}
+	onClose={() =>
+		setCheckoutVisible(false)
+	}/>
 			<div className="shoppingCart">
 				<div className="header">
 					<h2>Shopping cart</h2>
@@ -109,6 +135,14 @@ function ShoppingCart({
 							</button>
 						</div>
 					))}
+					{products.length > 0 && (
+						<button className="btn checkout-btn"
+						onClick={() =>
+							setCheckoutVisible(true)
+						}>
+							Proceed to checkout
+						</button>
+					)}
 				</div>
 			</div>
 		</div>
