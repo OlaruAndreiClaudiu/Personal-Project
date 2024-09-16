@@ -62,4 +62,9 @@
     justify-content: space-around;
     position: relative;
 }
+.bag-btn {
+	display: flex;
+	position: relative;
+}
+
 

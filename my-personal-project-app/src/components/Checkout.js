@@ -3,14 +3,24 @@ import React, {
 	useEffect,
 } from "react";
 import "../style/Checkout.css";
-import { AiFillCloseCircle } from "react-icons/ai";
-import Buy from "../components/Buy"
+import Buy from "../components/Buy";
+import { GiShoppingBag } from "react-icons/gi";
 
 function Checkout({
 	visibilty,
     products,
 	onClose,
 }) {
+	const [cartsVisibilty, setCartVisible] =
+	useState(false);
+	const [productsInCart, setProducts] =
+	useState(
+		JSON.parse(
+			localStorage.getItem(
+				"shopping-cart"
+			)
+		) || []
+	);
     const [buyVisibilty, setBuyVisible] =
 	useState(false);
 	const [productsInBuy, setBuy] =
@@ -44,6 +54,10 @@ function Checkout({
 			<div className="checkout">
 				<div className="header">
 					<h2>Checkout</h2>
+				</div>
+				<div className="btn bag-btn">
+					<GiShoppingBag size={100} />
+					<h3>Total :</h3>
 				</div>
                 <button className="btn buy"
                 onClick={() =>
