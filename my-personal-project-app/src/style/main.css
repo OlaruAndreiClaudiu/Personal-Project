@@ -57,13 +57,15 @@
 }
 
 main {
-	width: 80%;
+	width: 96%;
 	margin: auto;
 	padding: 2rem 0;
 }
 
 .title {
 	margin: 2rem 0;
+	position: relative;
+	left: 30px;
 }
 
 .products {
@@ -77,9 +79,8 @@ main {
 .product {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
 	cursor: pointer;
-	height: 550px;
+	height: 1000px;
 	flex-basis: 25%;
 	padding: 10px;
 	border: 4px solid #fff;
@@ -95,13 +96,15 @@ main {
 .product-image {
 	display: block;
 	width: 100%;
-	height: 55%;
+	height: 54%;
 	object-fit: contain;
 	background-color: #fff;
 }
 
 .product-name {
 	margin-top: 10px;
+	width: 439px;
+	height: 52px;
 }
 
 .rating {
@@ -135,8 +138,7 @@ main {
 	transition: opacity 0.5s;
 	opacity: 0;
 	width: 100%;
-	height: 100%;
-	background-color: #00000044;
+	height: 65%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -150,14 +152,26 @@ main {
 
 .buttons .btn {
 	margin-right: 1rem;
-	background-color: #dddddd;
+	background: linear-gradient(45deg, transparent, transparent ,black, transparent, transparent);
+	color: white;
 	padding: 10px 20px;
-	width: 50%;
+	width: 183%;
 	font-size: 1rem;
 	border-radius: 3px;
 }
 
 .buttons .btn:hover {
-	background-color: var(--main-color);
-	color: #fff;
+	color: white;
+}
+
+.description {
+	overflow-y: scroll;
+	height: 100px;
+	position: relative;
+	top: 10px;
+}
+
+.product-category {
+	position: relative;
+	top: 7px;
 }

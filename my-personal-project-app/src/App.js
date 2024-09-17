@@ -6,7 +6,7 @@ import "./style/main.css";
 import { GiShoppingBag } from "react-icons/gi";
 import RatingStars from "./components/RatingStars";
 import ShoppingCart from "./components/ShoppingCart";
-import Details from "./components/Details";
+
 
 const products = [
 	{
@@ -193,11 +193,6 @@ const products = [
 
 function App() {
 	
-	const [detailsVisibilty, setDetailsVisible] = useState(false);
-	const [productsInDetails, setDetails] = useState(JSON.parse(localStorage.getItem("details")) || []);
-	useEffect(() => {localStorage.setItem("details", JSON.stringify(productsInDetails));
-
-	}, [productsInDetails]);
 	
 	const [cartsVisibilty, setCartVisible] = useState(false);
 	const [productsInCart, setProducts] = useState(
@@ -209,23 +204,10 @@ function App() {
 		};
 		setProducts([...productsInCart, newProduct]);
 	};
-	const addProductToDetails = (product) => {
-		const newProduct = {
-			...product,
-			count: 1,
-		};
-		setDetails([...productsInDetails, newProduct,]);
-	};
+
 
 	const onQuantityChange = (productId, count) => {
 		setProducts((oldState) => {
-			const productsIndex = oldState.findIndex((item) => item.id === productId);
-			if (productsIndex !== -1) {
-				oldState[productsIndex].count = count;
-			}
-			return [...oldState];
-		});
-		setDetails((oldState) => {
 			const productsIndex = oldState.findIndex((item) => item.id === productId);
 			if (productsIndex !== -1) {
 				oldState[productsIndex].count = count;
@@ -246,11 +228,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<Details
-			visibilty={detailsVisibilty}
-			products={productsInDetails}
-			onClose={() => setDetailsVisible(false)
-			}/>
+
 			<ShoppingCart
 				visibilty={cartsVisibilty}
 				products={productsInCart}
@@ -281,7 +259,6 @@ function App() {
 									<div className="products">
 										{products.map((product) => (
 											<div className="product" key={product.id}>
-												{product.id}
 												<img className="product-image"src={
 													product.image
 												}
@@ -292,46 +269,31 @@ function App() {
 												<h4 className="product-name">
 													{product.name}</h4>
 													<RatingStars
-								rating={
-									product.rating
-								}
-							/>
-							<h4 className="product-category">
-								{product.category}
-							</h4>
-							<p>
-								{
-									product.description
-								}
-							</p>
-							<span className="product-price">
-								{product.price}$
-							</span>
-							<div className="buttons">
-								<button className="btn"
-									onClick={() =>
-										setDetailsVisible(
-											product.detail
-										)
-									}>
-									Details
-								</button>
-								<button
-									className="btn"
-									onClick={() =>
-										addProductToCart(
-											product
-										)
-									}>
-									Add to cart
-								</button>
-							</div>
-						</div>
-					))}
-				</div>
-			</main>
-		</div>
-	);
-}
+													rating={
+														product.rating
+													}/>
+													<h4 className="product-category">
+														{product.category}
+														</h4>
+														<div className="description">
+															{product.detail}
+															</div>
+															<span className="product-price">
+																{product.price}$
+																</span>
+																<div className="buttons">
 
+																	<button className="btn" onClick={() => addProductToCart(product)
+
+																	}>Add to cart
+																	</button>
+																	</div>
+																	</div>
+											))}
+	</div>
+	</main>
+</div>
+);
+}
+															
 export default App;
