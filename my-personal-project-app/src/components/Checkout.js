@@ -51,13 +51,45 @@ function Checkout({
 	onClose={() =>
 		setBuyVisible(false)
 	}/>
+
 			<div className="checkout">
 				<div className="header">
 					<h2>Checkout</h2>
 				</div>
+
 				<div className="btn bag-btn">
 					<GiShoppingBag size={100} />
-					<h3>Total :</h3>
+					{productsInCart.length > 0 && (
+							<span className="checkout-count">
+								{
+								productsInCart.length
+								}
+								</span>)
+								}
+								{productsInCart.map((product) => (
+					<h3>Total :{(product.price*product.count)}</h3>
+				))}
+		
+				</div>
+		
+
+				<div className="cart-products">
+					{productsInCart.length === 0 && (
+						<span className="empty-text">
+							Your basket is
+							currently empty
+						</span>
+					)}
+					{productsInCart.map((product) => (
+						<div
+							className="cart-product"
+							key={product.id}>
+							<div className="product-info">
+								<div className="product-price">
+								</div>
+							</div>
+						</div>
+					))}
 				</div>
                 <button className="btn buy"
                 onClick={() =>
@@ -70,6 +102,7 @@ function Checkout({
 							Cancel
 				</button>
 			</div>
+
 		</div>
 	);
 }

@@ -7,6 +7,7 @@ function Buy({
 	onClose,
 }) {
 	return (
+		
 		<div
 			className="modal"
 			style={{
@@ -18,7 +19,9 @@ function Buy({
 				<div className="header">
 					<button
 						className="btn close-buy"
-						onClick={onClose}>
+						onClick={onClose}
+
+						>
 						<AiFillCloseCircle
 							size={30}
 						/>
