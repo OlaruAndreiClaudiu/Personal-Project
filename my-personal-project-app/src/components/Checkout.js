@@ -59,13 +59,6 @@ function Checkout({
 
 				<div className="btn bag-btn">
 					<GiShoppingBag size={100} />
-					{productsInCart.length > 0 && (
-							<span className="checkout-count">
-								{
-								productsInCart.length
-								}
-								</span>)
-								}
 								{productsInCart.map((product) => (
 					<h3>Total :{(product.price*product.count)}</h3>
 				))}

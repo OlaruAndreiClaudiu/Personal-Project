@@ -1,4 +1,7 @@
-import React from "react";
+import React, {
+	useState,
+	useEffect,
+} from "react";
 import "../style/Details.css";
 import { AiFillCloseCircle } from "react-icons/ai";
 
@@ -6,6 +9,7 @@ function Buy({
 	visibilty,
 	onClose,
 }) {
+	
 	return (
 		
 		<div
